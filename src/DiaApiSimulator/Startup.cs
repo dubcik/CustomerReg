@@ -1,3 +1,5 @@
+using DiaApiSim.Application;
+using DiaApiSim.Interfaces.Application;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -21,6 +23,9 @@ namespace DiaApiSimulator
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddSingleton<ISimulatorMemoryStorage, SimulatorMemoryStorage>();
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

@@ -11,9 +11,9 @@ namespace DiaApiSim.Application
         public void AddApiPostRequest(Guid requestUid, string requestContent)
         {
             //add items in collection requests
+            _collectionRequests.Add(requestUid, requestContent);
 
-
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
     }
 }

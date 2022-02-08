@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DiaApiSim.Application;
+using DiaApiSim.Interfaces.Application;
+using Microsoft.AspNetCore.Mvc;
 using System;
 
 namespace DiaApiSimulator.Controllers
@@ -7,10 +9,17 @@ namespace DiaApiSimulator.Controllers
     [ApiController]
     public class PublicApiSimulatorController : ControllerBase
     {
+        private readonly ISimulatorMemoryStorage _simulatorMemoryStorage;
+
+        public PublicApiSimulatorController(ISimulatorMemoryStorage simulatorMemoryStorage) =>
+        _simulatorMemoryStorage = simulatorMemoryStorage;
+
         [HttpPost("{requestUid}/PostRequest")]
-        public ActionResult AddPostRequest([FromRoute]Guid requestUid)
+        public ActionResult AddPostRequest([FromRoute]Guid requestUid, [FromBody] string reguestContent)
         {
+            _simulatorMemoryStorage.AddApiPostRequest(requestUid, reguestContent);
+
             return Ok(requestUid);
         }
     }
-}
+ }

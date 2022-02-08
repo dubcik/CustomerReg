@@ -27,7 +27,6 @@ namespace DiaApiSimulator.Controllers
         public ActionResult<ISimulatorMemoryStorage> AddGetReguest([FromRoute]Guid requestUid)
         {
             //GetApiReguest
-             
             return Ok(_simulatorMemoryStorage.GetApiReguest(requestUid));//Ok(List[<string>])
         }
     }

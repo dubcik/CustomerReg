@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DiaApiSimulatorFormComponent } from './dia-api-simulator-form.component';
+import { DiaApiSimulatorService } from 'src/app/share/dia-api-simulator.service';
 
 describe('DiaApiSimulatorFormComponent', () => {
   let component: DiaApiSimulatorFormComponent;

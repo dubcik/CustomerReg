@@ -1,2 +1,20 @@
-<h1>Hello</h1>
-<p>dia-api-simulator works!</p>
+<div class="contaner">
+    <div class="jumbotron py-1">
+        <h1  class="display-4 text-center">API Simulator</h1>
+    </div>
+    
+    <app-dia-api-simulator-form></app-dia-api-simulator-form>
+    <div></div>
+    <table class="table">
+        <thead >
+          <tr>
+            <th>Guid + Content</th>
+         </tr>
+       </thead>
+        <tbody>
+            <tr  *ngFor="let allContent of service.list">
+                <td >{{allContent}}</td>
+              </tr>
+       </tbody>
+    </table>
+</div>

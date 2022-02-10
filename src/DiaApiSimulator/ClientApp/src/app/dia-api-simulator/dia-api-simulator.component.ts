@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DiaApiSimulatorService } from '../share/dia-api-simulator.service';
 
 @Component({
   selector: 'app-dia-api-simulator',
@@ -9,9 +10,10 @@ import { HttpClient } from '@angular/common/http';
 
 export class DiaApiSimulatorComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: DiaApiSimulatorService) { }
 
   ngOnInit() {
+    this.service.refreshList2();
+    //console.info(this.service.refreshList2());
   }
-
 }

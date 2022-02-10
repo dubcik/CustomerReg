@@ -30,5 +30,12 @@ namespace DiaApiSimulator.Controllers
             
             return Ok(requestResponse);
         }
+
+        [HttpGet]
+        public ActionResult<ISimulatorMemoryStorage> GetAllRequest()
+        {
+            var requestAllResponse = _simulatorMemoryStorage.GetAllApiRequest();
+            return Ok(requestAllResponse);
+        }
     }
  }

@@ -1,5 +1,6 @@
 export class DiaApiSimulator {
-    private Dictionary: string[];
+     Guid: string="";
+     
 
 
 }

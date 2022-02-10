@@ -8,6 +8,8 @@ namespace DiaApiSim.Interfaces.Application
         void AddApiPostRequest(Guid requestUid, string requestContent);
 
         List<string> GetApiByUidRequest(Guid requestUid);
+
+        Dictionary<Guid, List<string>> GetAllApiRequest();
     }
 
 }

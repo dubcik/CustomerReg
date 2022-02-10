@@ -24,6 +24,11 @@ namespace DiaApiSim.Application
         {
             return _collectionRequests.ContainsKey(requestUid) ? _collectionRequests[requestUid] : null;
         }
-        
+
+        public Dictionary<Guid, List<string>> GetAllApiRequest()
+        {
+            return _collectionRequests;
+        }
+
     }
 }

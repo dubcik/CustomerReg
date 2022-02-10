@@ -23,10 +23,10 @@ namespace DiaApiSimulator.Controllers
             return Ok(reguestContent);
         }
 
-        [HttpGet("{requestUid}")]
+        [HttpGet("{requestUid}/GetById")]
         public ActionResult<ISimulatorMemoryStorage> GetRequestByGuid([FromRoute]Guid requestUid)
         {
-            var requestResponse = _simulatorMemoryStorage.GetApiReguest(requestUid);
+            var requestResponse = _simulatorMemoryStorage.GetApiByUidRequest(requestUid);
             
             return Ok(requestResponse);
         }

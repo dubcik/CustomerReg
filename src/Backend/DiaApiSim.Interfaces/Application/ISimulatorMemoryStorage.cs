@@ -7,7 +7,7 @@ namespace DiaApiSim.Interfaces.Application
     {
         void AddApiPostRequest(Guid requestUid, string requestContent);
 
-        List<string> GetApiReguest(Guid requestUid);
+        List<string> GetApiByUidRequest(Guid requestUid);
     }
 
 }

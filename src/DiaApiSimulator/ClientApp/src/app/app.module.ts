@@ -9,6 +9,8 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { DiaApiSimulatorComponent } from './dia-api-simulator/dia-api-simulator.component';
+import { DiaApiSimulatorFormComponent } from './dia-api-simulator/dia-api-simulator-form/dia-api-simulator-form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    DiaApiSimulatorComponent,
+    DiaApiSimulatorFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

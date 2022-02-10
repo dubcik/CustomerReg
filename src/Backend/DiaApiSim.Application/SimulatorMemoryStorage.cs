@@ -10,9 +10,9 @@ namespace DiaApiSim.Application
 
         public void AddApiPostRequest(Guid requestUid, string requestContent)
         {
-            if(_collectionRequests.TryGetValue(requestUid, out List<string> Listcontent))
+            if(_collectionRequests.TryGetValue(requestUid, out List<string> listContent))
             {
-                Listcontent.Add(requestContent);
+                listContent.Add(requestContent);
             }
             else
             {
@@ -20,7 +20,7 @@ namespace DiaApiSim.Application
             }
         }
 
-        public List<string> GetApiReguest(Guid requestUid)
+        public List<string> GetApiByUidRequest(Guid requestUid)
         {
             return _collectionRequests.ContainsKey(requestUid) ? _collectionRequests[requestUid] : null;
         }

@@ -1,5 +1,7 @@
 ﻿using DiaApiSim.Interfaces.Application;
+using DiaApiSim.Models;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace DiaApiSim.Application
@@ -7,7 +9,7 @@ namespace DiaApiSim.Application
     public class SimulatorMemoryStorage : ISimulatorMemoryStorage
     {
         private readonly Dictionary<Guid, List<string>> _collectionRequests = new Dictionary<Guid, List<string>>();
-
+        
         public void AddApiPostRequest(Guid requestUid, string requestContent)
         {
             if(_collectionRequests.TryGetValue(requestUid, out List<string> listContent))
@@ -25,10 +27,19 @@ namespace DiaApiSim.Application
             return _collectionRequests.ContainsKey(requestUid) ? _collectionRequests[requestUid] : null;
         }
 
-        public Dictionary<Guid, List<string>> GetAllApiRequest()
+        public List<RequestListModel> GetAllApiRequest()
         {
-            return _collectionRequests;
+            var returnList = _collectionRequests.Select(x => new RequestListModel
+            {
+                Key = x.Key,
+                Value = x.Value
+            })
+            .ToList();
+
+            return returnList;
         }
 
     }
+
 }
+

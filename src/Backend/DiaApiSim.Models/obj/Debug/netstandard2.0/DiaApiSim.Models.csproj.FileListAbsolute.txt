@@ -1,0 +1,10 @@
+D:\work\dianoia-it\DiaApiSimulator\src\Backend\DiaApiSim.Models\bin\Debug\netstandard2.0\DiaApiSim.Models.deps.json
+D:\work\dianoia-it\DiaApiSimulator\src\Backend\DiaApiSim.Models\bin\Debug\netstandard2.0\DiaApiSim.Models.dll
+D:\work\dianoia-it\DiaApiSimulator\src\Backend\DiaApiSim.Models\bin\Debug\netstandard2.0\DiaApiSim.Models.pdb
+D:\work\dianoia-it\DiaApiSimulator\src\Backend\DiaApiSim.Models\obj\Debug\netstandard2.0\DiaApiSim.Models.csproj.AssemblyReference.cache
+D:\work\dianoia-it\DiaApiSimulator\src\Backend\DiaApiSim.Models\obj\Debug\netstandard2.0\DiaApiSim.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\work\dianoia-it\DiaApiSimulator\src\Backend\DiaApiSim.Models\obj\Debug\netstandard2.0\DiaApiSim.Models.AssemblyInfoInputs.cache
+D:\work\dianoia-it\DiaApiSimulator\src\Backend\DiaApiSim.Models\obj\Debug\netstandard2.0\DiaApiSim.Models.AssemblyInfo.cs
+D:\work\dianoia-it\DiaApiSimulator\src\Backend\DiaApiSim.Models\obj\Debug\netstandard2.0\DiaApiSim.Models.csproj.CoreCompileInputs.cache
+D:\work\dianoia-it\DiaApiSimulator\src\Backend\DiaApiSim.Models\obj\Debug\netstandard2.0\DiaApiSim.Models.dll
+D:\work\dianoia-it\DiaApiSimulator\src\Backend\DiaApiSim.Models\obj\Debug\netstandard2.0\DiaApiSim.Models.pdb

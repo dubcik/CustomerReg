@@ -8,4 +8,8 @@
     <PackageReference Include="DevExpress.Xpo" Version="21.1.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DiaApiSim.Models\DiaApiSim.Models.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiaApiSim.Models;
+using System;
 using System.Collections.Generic;
 
 namespace DiaApiSim.Interfaces.Application
@@ -9,7 +10,7 @@ namespace DiaApiSim.Interfaces.Application
 
         List<string> GetApiByUidRequest(Guid requestUid);
 
-        Dictionary<Guid, List<string>> GetAllApiRequest();
+        List<RequestListModel> GetAllApiRequest();
     }
 
 }

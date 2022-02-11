@@ -1,7 +1,9 @@
 ﻿using DiaApiSim.Application;
 using DiaApiSim.Interfaces.Application;
+using DiaApiSim.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace DiaApiSimulator.Controllers
@@ -32,10 +34,11 @@ namespace DiaApiSimulator.Controllers
         }
 
         [HttpGet]
-        public ActionResult<ISimulatorMemoryStorage> GetAllRequest()
+        public List<RequestListModel> GetAllRequest()
         {
+            
             var requestAllResponse = _simulatorMemoryStorage.GetAllApiRequest();
-            return Ok(requestAllResponse);
+            return requestAllResponse;
         }
     }
  }

@@ -11,8 +11,19 @@ export class DiaApiSimulatorComponent implements OnInit {
 
   constructor(public service: DiaApiSimulatorService) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
     this.service.refreshList();
     console.log(this.service.list);
+  }
+  getContentById(id:string)
+  {
+    this.service.getById(id);
+    console.log(this.service.singlelist);
+  }
+
+  refreshPage()
+  {
+    this.service.refreshList();
   }
 }

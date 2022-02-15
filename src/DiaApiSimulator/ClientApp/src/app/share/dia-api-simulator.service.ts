@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { DiaApiSimulator,DiaApiSimulatorSingle } from "./dia-api-simulator.model";
+import { DiaApiSimulator } from "./dia-api-simulator.model";
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,47 +19,15 @@ export class DiaApiSimulatorService
 
   readonly baseURL="https://localhost:5001/api/PublicApiSimulator/"
   
-  refreshList()
+  getFromServer() : Observable<DiaApiSimulator[]>
   {
-    this.http.get<DiaApiSimulator[]>(this.baseURL)
-        .subscribe(
-                  res => 
-                  this.list = res      ), 
-        (error: any) => console.error(error);
-     
-    this.singlelist.length = 0;
+    return this.http.get<DiaApiSimulator[]>(this.baseURL);
   }
 
-  getById(idToReturn:string)
+  
+  getFromServerById(idToReturn:string) : Observable<string[]>
   {
-    this.list.length = 0;
-    this.waitForOneSecond().then;
-    this.http.get<string[]>(this.baseURL + idToReturn + "/" + "GetById")
-        .subscribe(
-                  res => 
-                  this.singlelist = res);
-    
-    /*var key = idToReturn;
-    var content = this.singlelist;
-    this.list.push({key: null, value:content})*/
-    return this.updateListComponent(idToReturn,this.singlelist);
+    return this.http.get<string[]>(this.baseURL + idToReturn + "/" + "GetById")
   }
 
-  updateListComponent(key: string,content: string[])
-  {
-    this.list.push({key: key, value:content})
-  }
-
-  waitForOneSecond() {
-    return new Promise(resolve => 
-      {
-        setTimeout(() => {
-        resolve("Async metod");
-        }, 10000);
-      });
-  }
-  promiseMethod()
-  {
-    this.waitForOneSecond().then((value) => console.log(value));
-  }
 }

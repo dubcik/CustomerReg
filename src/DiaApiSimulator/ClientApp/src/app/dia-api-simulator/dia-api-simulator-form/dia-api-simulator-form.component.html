@@ -1,9 +1,29 @@
-<form novalidate autocomplete="off" #form="ngForm" >
-    <div class="form-group">
-        <div ></div>
-        <div>
-            <input class="form-control form-control-lg" value="Search by Guid" >
-            <input type="button" class="searchButton" value="Search" onclick="onClickSearchButton"/>
-        </div>
+<div class="contaner">
+    <div class="jumbotron py-1">
+        <h1  href="home" [routerLink]="['/']" class="display-4 text-center">API Simulator</h1>
     </div>
-</form>
+    <form novalidate autocomplete="off" #form="ngForm" >
+        <div class="form-group">
+            <div ></div>
+            <table class="table">
+                <thead >
+                  <tr>
+                    <th>Guid</th>
+                    <th>Content</th>
+                 </tr>
+               </thead>
+                <tbody>
+                    <tr  *ngFor="let allContent of list"> 
+                        <!--class="guid"-->
+                        <td class="answers" (click)="getContentById(allContent.key)">{{allContent.key}}</td>
+                        <table class="table">
+                            <tr *ngFor="let stringContent of allContent.value">
+                            <td > {{stringContent}}</td>
+                           </tr>
+                         </table>
+                      </tr>
+               </tbody>
+            </table>
+        </div>
+    </form>
+</div>

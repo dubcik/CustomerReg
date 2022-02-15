@@ -1,9 +1,16 @@
 <div class="contaner">
     <div class="jumbotron py-1">
-        <h1  href="home" [routerLink]="['/']" (click)="refreshPage()" class="display-4 text-center">API Simulator</h1>
+        <h1  href="home" [routerLink]="['/']" (click)="ngOnInit()" class="display-4 text-center">API Simulator</h1>
     </div>
-    
-    <app-dia-api-simulator-form></app-dia-api-simulator-form>
+    <form novalidate autocomplete="off" #form="ngForm" >
+      <div class="form-group">
+          <div ></div>
+          <div>
+              <input class="form-control form-control-lg" ng-model="member" value="Search by Guid" onfocus="this.value=''" >
+              <input type="reset" type="button" class="searchButton" value="Search" onclick="onClickSearchButton()"/>
+          </div>
+      </div>
+  </form>
     <div></div>
     <table class="table">
         <thead >
@@ -13,9 +20,16 @@
          </tr>
        </thead>
         <tbody>
-            <tr  *ngFor="let allContent of service.list">
-                <td class="guid" (click)="getContentById(allContent.key)">{{allContent.key}}</td>
-                <td >{{allContent.value}}</td>
+            <tr  *ngFor="let allContent of list"> 
+                <!--class="guid"-->
+                <td routerLink="/singleGuid/{{allContent.key}}" [state]="allContent.key"
+                class="answers" (click)="getContentById(allContent.key)">{{allContent.key}}</td>
+                <table class="table">
+                   <tr *ngFor="let stringContent of allContent.value">
+                   <td > {{stringContent}}</td>
+                  </tr>
+                </table>
+                
               </tr>
        </tbody>
     </table>

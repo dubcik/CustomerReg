@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DiaApiSimulatorService } from '../share/dia-api-simulator.service';
+import { DiaApiSimulator } from '../share/dia-api-simulator.model';
 
 @Component({
   selector: 'app-dia-api-simulator',
@@ -11,19 +12,47 @@ export class DiaApiSimulatorComponent implements OnInit {
 
   constructor(public service: DiaApiSimulatorService) { }
 
+  list:DiaApiSimulator[] = [];
+  
+  singlelist:string[]=[];
+  
   ngOnInit() 
   {
-    this.service.refreshList();
-    console.log(this.service.list);
+    this.getDataFromService();
   }
   getContentById(id:string)
   {
-    this.service.getById(id);
-    console.log(this.service.singlelist);
+    this.getById(id);
   }
 
-  refreshPage()
+  getDataFromService()
   {
-    this.service.refreshList();
+    this.service.getFromServer()
+                 .subscribe(
+                      res => 
+                      this.list = res    ), 
+                 (error: any) => console.error(error); 
+
+    this.singlelist.length = 0;
+  }
+
+  getById(idToReturn:string)
+  {
+    this.service.getFromServerById(idToReturn)
+        .subscribe(
+                  res => {
+                     this.singlelist = res;
+                     this.updateListComponent(idToReturn,this.singlelist);
+                    });
+  }
+
+  updateListComponent(key: string,content: string[])
+  {
+    this.list.length = 0;
+    this.list.push({key: key, value:content})
+  }
+  
+  onClickSearchButton()
+  {
   }
 }

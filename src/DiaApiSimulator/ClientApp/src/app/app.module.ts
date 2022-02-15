@@ -19,9 +19,8 @@ import { DiaApiSimulatorFormComponent } from './dia-api-simulator/dia-api-simula
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: DiaApiSimulatorComponent, pathMatch: 'full' },
       { path: '', component: DiaApiSimulatorComponent },
-      { path: '**', component: DiaApiSimulatorComponent }
+      { path: 'singleGuid/:Guid', component: DiaApiSimulatorFormComponent},
     ])
   ],
   providers: [],

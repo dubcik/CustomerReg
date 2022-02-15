@@ -14,3 +14,32 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.jumbotron {
+  background-color:aquamarine !important; 
+}
+
+thead {
+  background-color:rgb(214, 248, 198); 
+}
+
+.answers  {
+  font-weight:bold ;
+}
+.searchButton{
+  background: #d5ff92;
+  border: none;
+  padding: 10px 47.5%;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 8px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.searchButton:hover {
+  background-color: rgb(47, 240, 47);;
+  color: black;
+}

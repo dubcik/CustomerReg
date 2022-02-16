@@ -5,7 +5,7 @@ import { DiaApiSimulator } from '../share/dia-api-simulator.model';
 @Component({
   selector: 'app-dia-api-simulator',
   templateUrl: './dia-api-simulator.component.html',
-  styleUrls: ['./dia-api-simulator.component.css']
+  styleUrls: ['./dia-api-simulator.component.css'],
 })
 
 export class DiaApiSimulatorComponent implements OnInit {

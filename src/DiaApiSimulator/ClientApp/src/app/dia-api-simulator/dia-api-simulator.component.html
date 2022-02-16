@@ -6,7 +6,8 @@
       <div class="form-group">
           <div ></div>
           <div>
-              <input id="search-box" class="form-control form-control-lg" ng-model="member" value="Search by Guid" onfocus="this.value=''" >
+            
+              <input id="search-box" class="form-control form-control-lg" #matInput placeholder="Search by Guid">
               <input type="button" class="searchButton" value="Search" (click)="onClickSearchButton()"/>
           </div>
       </div>

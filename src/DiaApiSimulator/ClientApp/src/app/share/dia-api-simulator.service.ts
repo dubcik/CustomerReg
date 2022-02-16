@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { DiaApiSimulator } from "./dia-api-simulator.model";
 import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,6 @@ export class DiaApiSimulatorService
     return this.http.get<DiaApiSimulator[]>(this.baseURL);
   }
 
-  
   getFromServerById(idToReturn:string) : Observable<string[]>
   {
     return this.http.get<string[]>(this.baseURL + idToReturn + "/" + "GetById")

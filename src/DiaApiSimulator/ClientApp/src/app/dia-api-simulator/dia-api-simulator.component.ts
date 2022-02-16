@@ -53,6 +53,15 @@ export class DiaApiSimulatorComponent implements OnInit {
   }
   
   onClickSearchButton()
-  {
+  {   
+     let guid = (document.getElementById("search-box") as HTMLInputElement).value;
+     if(guid=="Search by Guid"|| guid=="")
+     {
+       console.log("can not find this" , guid);
+     }
+     else
+     {
+        this.getById(guid);
+      }
   }
 }

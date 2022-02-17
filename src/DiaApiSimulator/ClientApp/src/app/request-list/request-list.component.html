@@ -2,16 +2,16 @@
     <div class="jumbotron py-1">
         <h1  href="home" [routerLink]="['/']" (click)="ngOnInit()" class="display-4 text-center">API Simulator</h1>
     </div>
-    <form novalidate autocomplete="off" #form="ngForm" >
+    <form novalidate autocomplete="off" #form="ngForm" (submit)="onSerchButtonClick()">
         <div class="form-group">
             <div>
-                <input id="search-box" class="form-control form-control-lg" #matInput placeholder="Search by Guid">
-                <input type="button" class="searchButton" value="Search"/>
+                <input id="search-box" class="form-control form-control-lg" #matInput placeholder="Search by Guid" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}">
+                <input type="button" class="searchButton" value="Search" (click)="findElementInListOfRequest()"/>
             </div>
         </div>
     </form>
     <div></div>
-    <table class="table">
+    <table class="table" *ngIf="disableAllRequest">
             <thead>
               <tr>
                 <th>
@@ -23,7 +23,7 @@
               </tr>
             </thead>
           <tbody>
-            <tr *ngFor="let allContent of listOfRequest"> 
+            <tr *ngFor="let allContent of listOfRequest" > 
                 <td routerLink="/requestViewByGuid/{{allContent.key}}" class="guid" [state]="allContent.key">
                   {{allContent.key}}
                 </td>
@@ -37,4 +37,30 @@
             </tr>
           </tbody>
      </table>
+     <table class="table" *ngIf="!disableAllRequest">
+      <thead>
+        <tr>
+          <th>
+            Guid
+          </th>
+          <th>
+            Content
+          </th>
+        </tr>
+      </thead>
+    <tbody>
+      <tr *ngFor="let searchContent of listOfRequestBySerch" > 
+          <td routerLink="/requestViewByGuid/{{searchContent.key}}" class="guid" [state]="searchContent.key">
+            {{searchContent.key}}
+          </td>
+          <table class="table">
+              <tr *ngFor="let stringContent of searchContent.value">
+                  <td > 
+                    {{stringContent}}
+                  </td>
+              </tr>
+          </table>
+      </tr>
+    </tbody>
+</table>
 </div>

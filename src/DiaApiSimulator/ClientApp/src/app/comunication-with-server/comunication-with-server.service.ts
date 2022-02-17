@@ -1,33 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { DiaApiSimulator } from "./dia-api-simulator.model";
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { DataFormFromServer } from "./comunication-with-server.model";
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DiaApiSimulatorService 
+export class ComunicationWithServerService 
 {
-
   constructor(
     private http:HttpClient) 
     { }
 
-  list:DiaApiSimulator[] = [];
-
-  singlelist:string[]=[];
-
   readonly baseURL="https://localhost:5001/api/PublicApiSimulator/"
   
-  getFromServer() : Observable<DiaApiSimulator[]>
+  getFromServer() : Observable<DataFormFromServer[]>
   {
-    return this.http.get<DiaApiSimulator[]>(this.baseURL);
+    return this.http.get<DataFormFromServer[]>(this.baseURL);
   }
 
   getFromServerById(idToReturn:string) : Observable<string[]>
   {
     return this.http.get<string[]>(this.baseURL + idToReturn + "/" + "GetById")
   }
-
 }

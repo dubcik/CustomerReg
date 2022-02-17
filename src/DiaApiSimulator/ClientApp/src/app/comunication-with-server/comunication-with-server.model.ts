@@ -1,4 +1,5 @@
-export class DiaApiSimulator {
+export class DataFormFromServer 
+{
      key: string;
      value: string[]
 }   

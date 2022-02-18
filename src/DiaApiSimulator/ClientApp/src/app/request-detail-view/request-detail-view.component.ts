@@ -24,6 +24,7 @@ export class RequestDetailViewComponent implements OnInit {
   }
 
   getContentWhitIdFromSnapshot()
+  
   {
     const Guid = this.route.snapshot.paramMap.get('Guid');
     this.service.getFromServerById(Guid)

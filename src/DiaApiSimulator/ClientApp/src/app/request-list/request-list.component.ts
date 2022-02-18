@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ComunicationWithServerService } from '../comunication-with-server/comunication-with-server.service';
 import { DataFormFromServer } from '../comunication-with-server/comunication-with-server.model';
-import { forEachChild } from 'typescript';
 
 @Component({
   selector: 'app-request-list',
@@ -14,9 +13,8 @@ export class RequestListComponent implements OnInit {
   constructor(public service: ComunicationWithServerService) { }
 
   listOfRequest:DataFormFromServer[] = [];
-  contentOfOneRequest:string[]=[];
   disableAllRequest:boolean;
-  listOfRequestBySerch:DataFormFromServer[] = [];
+  listOfRequestBySearch:DataFormFromServer[] = [];
   searchValue:string;
   
   ngOnInit() 
@@ -34,29 +32,18 @@ export class RequestListComponent implements OnInit {
                  (error: any) => console.error(error); 
   }
 
-  onSerchButtonClick()
-  {
-    return this.searchValue;
-  }
   findElementInListOfRequest()
   {
     this.disableAllRequest = false;
-    console.log(this.searchValue);
-    this.listOfRequestBySerch = this.listOfRequest.
+    
+    this.listOfRequestBySearch = this.listOfRequest.
             filter(
                       listOfRequest=>
-                      listOfRequest.key == this.searchValue
+                      listOfRequest.key.indexOf(this.searchValue)>=0 ||
+                      listOfRequest.value
+                        .filter(
+                               c => c.indexOf(this.searchValue)>=0
+                              ).length>0
                   );
-                  this.findBySearch(this.searchValue)
-  }
-
-  findBySearch(params:string)
-  {
-     var pet = "ffff";
-     let regex = new RegExp ('/^((?!('+pet+')).)*$/');
-     console.log(regex.test(params));
   }
 } 
-   
-    
-  

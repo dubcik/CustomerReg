@@ -1,8 +1,7 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/src/Backend/DiaApiSim.Application/bin/Debug/net5.0
-/src/Backend/DiaApiSim.Application/obj
-/src/Backend/DiaApiSim.Interfaces/bin/Debug/net5.0
-/src/Backend/DiaApiSim.Interfaces/obj
+obj/
+bin/
+node_modules/

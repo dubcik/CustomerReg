@@ -15,9 +15,9 @@ export class RequestDetailViewComponent implements OnInit {
     private route: ActivatedRoute,) { }
 
   listOfRequest:DataFormFromServer[] = [];
-  
+  searchValue:string;
   contentOfOneRequest:string[]=[];
-  
+
   ngOnInit() 
   {
     this.getContentWhitIdFromSnapshot();
@@ -33,11 +33,41 @@ export class RequestDetailViewComponent implements OnInit {
                      this.contentOfOneRequest = res;
                      this.updateListOfRequest(Guid,this.contentOfOneRequest);
                     });
+                    this.contentOfOneRequest.length=0;
   }
 
   updateListOfRequest(key: string,content: string[])
   {
     this.listOfRequest.length=0;
     this.listOfRequest.push({key: key, value:content})
+  }
+  
+  findElementInListOfRequest()
+  {    
+    this.listOfRequest = this.listOfRequest.
+            filter(
+                      listOfRequest=>
+                      listOfRequest.value
+                        .filter(
+                               c => c.indexOf(this.searchValue)   //.filter(x => x.toLowerCase().includes(this.searchValue.toLowerCase()))
+                               ).length>0
+                  );   
+                       
+                  var eArr = this.listOfRequest.values();
+                  for(let i of eArr)
+                 {
+                   for(let j in i)
+                   {  
+                      for(var pos=0;pos<i.value.length;pos++)
+                      {
+                        if(i[j][pos].indexOf(this.searchValue)>=0)
+                        {
+                          this.contentOfOneRequest = i[j][pos];
+                          console.log(this.contentOfOneRequest);
+                           //   this.listOfRequest[this.route.snapshot.paramMap.get('Guid')].push(this.contentOfOneRequest)
+                        }
+                      }
+                    }
+                    }
   }
 }

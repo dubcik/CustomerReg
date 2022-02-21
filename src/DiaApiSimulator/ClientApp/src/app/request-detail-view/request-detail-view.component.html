@@ -2,6 +2,14 @@
     <div class="jumbotron py-1">
         <h1  href="home" [routerLink]="['/']" class="display-4 text-center">API Simulator</h1>
     </div>
+        <form novalidate autocomplete="off" #form="ngForm">
+            <div class="form-group">
+                <div>
+                    <input id="search-box" class="form-control form-control-lg" #matInput placeholder="Search by Guid" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}">
+                    <input type="button" class="searchButton" value="Search" (click)="findElementInListOfRequest()"/>
+                </div>
+            </div>
+        </form>
         <div class="form-group">
             <table class="table">
                 <thead >
